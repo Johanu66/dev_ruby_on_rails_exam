@@ -36,6 +36,10 @@ class PostsController < ApplicationController
       render :edit
     end
   end
+  def destroy
+    @post.destroy
+    redirect_to posts_path, notice:"Nous avons supprimé votre post !"
+  end
 
   private
   def post_params

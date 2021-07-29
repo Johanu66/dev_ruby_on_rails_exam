@@ -27,6 +27,15 @@ class PostsController < ApplicationController
   end
   def show
   end
+  def edit
+  end
+  def update
+    if @post.update(post_params)
+      redirect_to posts_path, notice: "Nous avons édité le post !"
+    else
+      render :edit
+    end
+  end
 
   private
   def post_params

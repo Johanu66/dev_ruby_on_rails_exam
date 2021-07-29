@@ -1,20 +1,32 @@
-<h1>Liste des posts</h1>
-<p><%= notice %></p>
-<table border="1">
-    <tr>
-        <th>Id</th>
-        <th>Contenu</th>
-        <th>Date de création</th>
-    </tr>
-    <% @posts.each do |post| %>
-    <tr>
-        <td><%= post.id %></td>
-        <td><%= post.content %></td>
-        <td><%= post.created_at %></td>
-        <td><%= link_to 'Vérifiez les détails', post_path(post.id) %></td>
-        <td><%= link_to "Editer post", edit_post_path(post.id) %></td>
-        <td><%= link_to 'Supprimez ce post', post_path(post.id), method: :delete ,data: { confirm: 'Vous êtes sûr de vouloir supprimer ça ?' } %></td>
-    </tr>
-    <% end %>
-</table>
-<%= link_to "Ajouter un nouveau post", new_post_path %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="menu">
+            <img src="logo.png">
+            <%= link_to "Ajouter un nouveau post", new_post_path, id: "ajout", class: "bouton" %>
+        </div>
+        <div id="main">
+            <div id="title">
+                <h1>Liste des posts</h1>
+                <p><%= notice %></p>
+            </div>
+            <% @posts.each do |post| %>
+            <div class="posts">
+                <div class="title_post">
+                    <h1>POST N°<%= post.id %></h1>
+                    <div><%= post.created_at %></div>
+                </div>
+                <div><%= post.content %></div>
+                <div>
+                    <%= link_to 'Vérifiez les détails', post_path(post.id), class: "bouton" %>
+                    <%= link_to "Editer post", edit_post_path(post.id), class: "bouton" %>
+                    <%= link_to 'Supprimez ce post', post_path(post.id), method: :delete ,data: { confirm: 'Vous êtes sûr de vouloir supprimer ça ?' }, class: "bouton" %>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,7 @@
+<h3>Les informations suivantes doivent être envoyées.</h3>
+<%= form_with(model: @post, local: true) do |form| %>
+  <%= form.hidden_field :content %>
+  <p>Contenu:<%= @post.content %></p>
+  <%= form.submit  "S'inscrire" %>
+  <%= form.submit "Retour", name: 'back' %>
+<% end %>

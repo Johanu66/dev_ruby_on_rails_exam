@@ -1,0 +1,5 @@
+<h1>Detail sur un post</h1>
+<div>Contenu : <%= @post.content %></div>
+<div>Créé le : <%= @post.created_at %></div>
+<div>Dernièrement modifier le : <%= @post.updated_at %></div>
+<%= link_to "Retour à l'écran de la liste des posts", posts_path %>
